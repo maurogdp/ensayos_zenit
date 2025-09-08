@@ -13,8 +13,10 @@ import csv
 from pathlib import Path
 from typing import Dict, Set
 
-INPUT_DIR = Path("csv_ensayos")
-OUTPUT_FILE = Path("resumen_rendiciones.csv")
+# Directorios base calculados respecto al archivo del script
+BASE_DIR = Path(__file__).resolve().parent
+INPUT_DIR = BASE_DIR / "csv_ensayos"
+OUTPUT_FILE = BASE_DIR / "resumen_rendiciones.csv"
 
 
 def reunir_datos() -> tuple[dict[str, dict[str, object]], Set[str]]:
@@ -22,11 +24,23 @@ def reunir_datos() -> tuple[dict[str, dict[str, object]], Set[str]]:
     estudiantes: dict[str, dict[str, object]] = {}
     examenes: Set[str] = set()
 
-    for ruta in sorted(INPUT_DIR.glob("*.csv")):
+    archivos = [
+        p for p in INPUT_DIR.rglob("*") if p.is_file() and p.suffix.lower() == ".csv"
+    ]
+    if not archivos:
+        print(f"No se encontraron archivos CSV en {INPUT_DIR}")
+
+    for ruta in sorted(archivos):
+        print(f"Procesando {ruta}")
         with ruta.open(newline="", encoding="utf-8-sig") as f:
             reader = csv.DictReader(f)
             for fila in reader:
-                examen = (fila.get("QuizName") or ruta.stem).replace("\n", " ").replace("\r", " ").strip()
+                examen = (
+                    (fila.get("QuizName") or ruta.stem)
+                    .replace("\n", " ")
+                    .replace("\r", " ")
+                    .strip()
+                )
                 examenes.add(examen)
                 sid = fila.get("StudentID", "").strip()
                 nombre = fila.get("FirstName", "").strip()
