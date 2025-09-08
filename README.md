@@ -29,8 +29,9 @@ Los archivos de salida se generan en la raíz del repositorio.
 ## `consolidar_rendiciones.py`
 
 Recorre todos los archivos dentro de `csv_ensayos/` y genera
-`resumen_rendiciones.csv`, donde para cada estudiante se indica qué
-examen rindió, el puntaje obtenido y si aún no lo ha realizado (`NR`).
+`resumen_rendiciones.csv`, donde cada fila corresponde a un estudiante y
+los nombres de los exámenes aparecen como columnas. En cada celda se
+indica el puntaje obtenido o `NR` si aún no lo ha realizado.
 
 ### Uso
 
