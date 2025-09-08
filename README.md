@@ -25,3 +25,27 @@ python procesar_respuestas.py
 ```
 
 Los archivos de salida se generan en la raíz del repositorio.
+
+## `consolidar_rendiciones.py`
+
+Recorre todos los archivos dentro de `csv_ensayos/` y genera
+`resumen_rendiciones.csv`, donde para cada estudiante se indica qué
+examen rindió, el puntaje obtenido y si aún no lo ha realizado (`NR`).
+
+### Uso
+
+```bash
+python consolidar_rendiciones.py
+```
+
+## `proyeccion_correctas.py`
+
+Estima cuántas preguntas correctas podría obtener cada estudiante en los
+exámenes que todavía no ha rendido, basándose en su desempeño previo.
+El resultado se guarda en `proyeccion_preguntas_correctas.csv`.
+
+### Uso
+
+```bash
+python proyeccion_correctas.py
+```
