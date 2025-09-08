@@ -10,6 +10,7 @@ el puntaje obtenido o ``NR`` en caso de no rendido.
 from __future__ import annotations
 
 import csv
+from itertools import chain
 from pathlib import Path
 from typing import Dict, Set
 
@@ -34,14 +35,22 @@ def reunir_datos() -> tuple[dict[str, dict[str, object]], Set[str]]:
         print(f"Procesando {ruta}")
         with ruta.open(newline="", encoding="utf-8-sig") as f:
             reader = csv.DictReader(f)
-            for fila in reader:
-                examen = (
-                    (fila.get("QuizName") or ruta.stem)
-                    .replace("\n", " ")
-                    .replace("\r", " ")
-                    .strip()
-                )
+            primera = next(reader, None)
+
+            if primera is None:
+                examen = ruta.stem.replace("\n", " ").replace("\r", " ").strip()
                 examenes.add(examen)
+                continue
+
+            examen = (
+                (primera.get("QuizName") or ruta.stem)
+                .replace("\n", " ")
+                .replace("\r", " ")
+                .strip()
+            )
+            examenes.add(examen)
+
+            for fila in chain([primera], reader):
                 sid = fila.get("StudentID", "").strip()
                 nombre = fila.get("FirstName", "").strip()
                 apellido = fila.get("LastName", "").strip()
