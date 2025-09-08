@@ -1,253 +1,37 @@
-StudentID,FirstName,LastName,Exam,Status,Score
-502,Gabriela Paz,Acuña,M1 1 Moraleja 2025,R,29.0
-502,Gabriela Paz,Acuña,M1 2 Moraleja 2025,R,26.0
-502,Gabriela Paz,Acuña,M1 4 Moraleja 2025,NR,
-502,Gabriela Paz,Acuña,M1 Invierno Ad.26,R,57.0
-502,Gabriela Paz,Acuña,M2 1 Moraleja 2025,R,8.0
-502,Gabriela Paz,Acuña,M2 4 Moraleja 2025,NR,
-502,Gabriela Paz,Acuña,M2 5 Moraleja 2025,NR,
-503,Cristoba,Arriagada,M1 1 Moraleja 2025,R,42.0
-503,Cristoba,Arriagada,M1 2 Moraleja 2025,NR,
-503,Cristoba,Arriagada,M1 4 Moraleja 2025,NR,
-503,Cristoba,Arriagada,M1 Invierno Ad.26,R,51.0
-503,Cristoba,Arriagada,M2 1 Moraleja 2025,R,15.0
-503,Cristoba,Arriagada,M2 4 Moraleja 2025,NR,
-503,Cristoba,Arriagada,M2 5 Moraleja 2025,NR,
-524,Joshua Adolfo,Bravo,M1 1 Moraleja 2025,R,31.0
-524,Joshua Adolfo,Bravo,M1 2 Moraleja 2025,R,27.0
-524,Joshua Adolfo,Bravo,M1 4 Moraleja 2025,R,26.0
-524,Joshua Adolfo,Bravo,M1 Invierno Ad.26,R,47.0
-524,Joshua Adolfo,Bravo,M2 1 Moraleja 2025,NR,
-524,Joshua Adolfo,Bravo,M2 4 Moraleja 2025,NR,
-524,Joshua Adolfo,Bravo,M2 5 Moraleja 2025,NR,
-505,Agustina Belén,Carrera,M1 1 Moraleja 2025,R,34.0
-505,Agustina Belén,Carrera,M1 2 Moraleja 2025,NR,
-505,Agustina Belén,Carrera,M1 4 Moraleja 2025,NR,
-505,Agustina Belén,Carrera,M1 Invierno Ad.26,R,50.0
-505,Agustina Belén,Carrera,M2 1 Moraleja 2025,NR,
-505,Agustina Belén,Carrera,M2 4 Moraleja 2025,NR,
-505,Agustina Belén,Carrera,M2 5 Moraleja 2025,NR,
-508,Isidora Paz,Catalán,M1 1 Moraleja 2025,R,13.0
-508,Isidora Paz,Catalán,M1 2 Moraleja 2025,R,12.0
-508,Isidora Paz,Catalán,M1 4 Moraleja 2025,NR,
-508,Isidora Paz,Catalán,M1 Invierno Ad.26,R,34.0
-508,Isidora Paz,Catalán,M2 1 Moraleja 2025,NR,
-508,Isidora Paz,Catalán,M2 4 Moraleja 2025,NR,
-508,Isidora Paz,Catalán,M2 5 Moraleja 2025,NR,
-514,Juan Esteban,Cruz,M1 1 Moraleja 2025,R,40.0
-514,Juan Esteban,Cruz,M1 2 Moraleja 2025,NR,
-514,Juan Esteban,Cruz,M1 4 Moraleja 2025,NR,
-514,Juan Esteban,Cruz,M1 Invierno Ad.26,R,57.0
-514,Juan Esteban,Cruz,M2 1 Moraleja 2025,NR,
-514,Juan Esteban,Cruz,M2 4 Moraleja 2025,NR,
-514,Juan Esteban,Cruz,M2 5 Moraleja 2025,NR,
-511,Josefa,Fontecilla,M1 1 Moraleja 2025,R,34.0
-511,Josefa,Fontecilla,M1 2 Moraleja 2025,R,37.0
-511,Josefa,Fontecilla,M1 4 Moraleja 2025,NR,
-511,Josefa,Fontecilla,M1 Invierno Ad.26,R,49.0
-511,Josefa,Fontecilla,M2 1 Moraleja 2025,NR,
-511,Josefa,Fontecilla,M2 4 Moraleja 2025,NR,
-511,Josefa,Fontecilla,M2 5 Moraleja 2025,NR,
-528,Ignacia Isabela,Galleguillos,M1 1 Moraleja 2025,R,18.0
-528,Ignacia Isabela,Galleguillos,M1 2 Moraleja 2025,R,15.0
-528,Ignacia Isabela,Galleguillos,M1 4 Moraleja 2025,NR,
-528,Ignacia Isabela,Galleguillos,M1 Invierno Ad.26,NR,
-528,Ignacia Isabela,Galleguillos,M2 1 Moraleja 2025,R,15.0
-528,Ignacia Isabela,Galleguillos,M2 4 Moraleja 2025,R,15.0
-528,Ignacia Isabela,Galleguillos,M2 5 Moraleja 2025,R,20.0
-506,Alejandra,García,M1 1 Moraleja 2025,R,30.0
-506,Alejandra,García,M1 2 Moraleja 2025,NR,
-506,Alejandra,García,M1 4 Moraleja 2025,NR,
-506,Alejandra,García,M1 Invierno Ad.26,R,50.0
-506,Alejandra,García,M2 1 Moraleja 2025,NR,
-506,Alejandra,García,M2 4 Moraleja 2025,NR,
-506,Alejandra,García,M2 5 Moraleja 2025,NR,
-513,Josefina Andrea,Gutierrez,M1 1 Moraleja 2025,R,28.0
-513,Josefina Andrea,Gutierrez,M1 2 Moraleja 2025,NR,
-513,Josefina Andrea,Gutierrez,M1 4 Moraleja 2025,NR,
-513,Josefina Andrea,Gutierrez,M1 Invierno Ad.26,R,49.0
-513,Josefina Andrea,Gutierrez,M2 1 Moraleja 2025,NR,
-513,Josefina Andrea,Gutierrez,M2 4 Moraleja 2025,NR,
-513,Josefina Andrea,Gutierrez,M2 5 Moraleja 2025,NR,
-527,Javier Alejando,Huechucura,M1 1 Moraleja 2025,R,16.0
-527,Javier Alejando,Huechucura,M1 2 Moraleja 2025,NR,
-527,Javier Alejando,Huechucura,M1 4 Moraleja 2025,NR,
-527,Javier Alejando,Huechucura,M1 Invierno Ad.26,NR,
-527,Javier Alejando,Huechucura,M2 1 Moraleja 2025,NR,
-527,Javier Alejando,Huechucura,M2 4 Moraleja 2025,NR,
-527,Javier Alejando,Huechucura,M2 5 Moraleja 2025,NR,
-525,Agustina Paz,Larenas,M1 1 Moraleja 2025,R,21.0
-525,Agustina Paz,Larenas,M1 2 Moraleja 2025,NR,
-525,Agustina Paz,Larenas,M1 4 Moraleja 2025,NR,
-525,Agustina Paz,Larenas,M1 Invierno Ad.26,NR,
-525,Agustina Paz,Larenas,M2 1 Moraleja 2025,NR,
-525,Agustina Paz,Larenas,M2 4 Moraleja 2025,NR,
-525,Agustina Paz,Larenas,M2 5 Moraleja 2025,NR,
-509,Simón Augusto,Lazo,M1 1 Moraleja 2025,R,34.0
-509,Simón Augusto,Lazo,M1 2 Moraleja 2025,NR,
-509,Simón Augusto,Lazo,M1 4 Moraleja 2025,NR,
-509,Simón Augusto,Lazo,M1 Invierno Ad.26,NR,
-509,Simón Augusto,Lazo,M2 1 Moraleja 2025,NR,
-509,Simón Augusto,Lazo,M2 4 Moraleja 2025,NR,
-509,Simón Augusto,Lazo,M2 5 Moraleja 2025,NR,
-553,Paula,Lizana,M1 1 Moraleja 2025,R,45.0
-553,Paula,Lizana,M1 2 Moraleja 2025,R,39.0
-553,Paula,Lizana,M1 4 Moraleja 2025,NR,
-553,Paula,Lizana,M1 Invierno Ad.26,NR,
-553,Paula,Lizana,M2 1 Moraleja 2025,R,20.0
-553,Paula,Lizana,M2 4 Moraleja 2025,R,37.0
-553,Paula,Lizana,M2 5 Moraleja 2025,R,37.0
-510,Trinidad Renata,Lorca,M1 1 Moraleja 2025,R,30.0
-510,Trinidad Renata,Lorca,M1 2 Moraleja 2025,R,17.0
-510,Trinidad Renata,Lorca,M1 4 Moraleja 2025,NR,
-510,Trinidad Renata,Lorca,M1 Invierno Ad.26,R,49.0
-510,Trinidad Renata,Lorca,M2 1 Moraleja 2025,NR,
-510,Trinidad Renata,Lorca,M2 4 Moraleja 2025,NR,
-510,Trinidad Renata,Lorca,M2 5 Moraleja 2025,NR,
-501,Florencia Paz,Olguín,M1 1 Moraleja 2025,R,34.0
-501,Florencia Paz,Olguín,M1 2 Moraleja 2025,NR,
-501,Florencia Paz,Olguín,M1 4 Moraleja 2025,NR,
-501,Florencia Paz,Olguín,M1 Invierno Ad.26,R,47.0
-501,Florencia Paz,Olguín,M2 1 Moraleja 2025,NR,
-501,Florencia Paz,Olguín,M2 4 Moraleja 2025,NR,
-501,Florencia Paz,Olguín,M2 5 Moraleja 2025,NR,
-516,Ignacio Andrés,Ortiz,M1 1 Moraleja 2025,R,43.0
-516,Ignacio Andrés,Ortiz,M1 2 Moraleja 2025,R,43.0
-516,Ignacio Andrés,Ortiz,M1 4 Moraleja 2025,NR,
-516,Ignacio Andrés,Ortiz,M1 Invierno Ad.26,R,52.0
-516,Ignacio Andrés,Ortiz,M2 1 Moraleja 2025,NR,
-516,Ignacio Andrés,Ortiz,M2 4 Moraleja 2025,NR,
-516,Ignacio Andrés,Ortiz,M2 5 Moraleja 2025,NR,
-554,Carla,Parraguez,M1 1 Moraleja 2025,R,36.0
-554,Carla,Parraguez,M1 2 Moraleja 2025,NR,
-554,Carla,Parraguez,M1 4 Moraleja 2025,NR,
-554,Carla,Parraguez,M1 Invierno Ad.26,NR,
-554,Carla,Parraguez,M2 1 Moraleja 2025,NR,
-554,Carla,Parraguez,M2 4 Moraleja 2025,NR,
-554,Carla,Parraguez,M2 5 Moraleja 2025,NR,
-550,Santiago,Quilodrán,M1 1 Moraleja 2025,R,57.0
-550,Santiago,Quilodrán,M1 2 Moraleja 2025,R,56.0
-550,Santiago,Quilodrán,M1 4 Moraleja 2025,NR,
-550,Santiago,Quilodrán,M1 Invierno Ad.26,NR,
-550,Santiago,Quilodrán,M2 1 Moraleja 2025,NR,
-550,Santiago,Quilodrán,M2 4 Moraleja 2025,NR,
-550,Santiago,Quilodrán,M2 5 Moraleja 2025,NR,
-551,Sofía,Quilodrán,M1 1 Moraleja 2025,R,56.0
-551,Sofía,Quilodrán,M1 2 Moraleja 2025,R,55.0
-551,Sofía,Quilodrán,M1 4 Moraleja 2025,NR,
-551,Sofía,Quilodrán,M1 Invierno Ad.26,NR,
-551,Sofía,Quilodrán,M2 1 Moraleja 2025,NR,
-551,Sofía,Quilodrán,M2 4 Moraleja 2025,NR,
-551,Sofía,Quilodrán,M2 5 Moraleja 2025,NR,
-552,José,Reyes,M1 1 Moraleja 2025,R,48.0
-552,José,Reyes,M1 2 Moraleja 2025,NR,
-552,José,Reyes,M1 4 Moraleja 2025,NR,
-552,José,Reyes,M1 Invierno Ad.26,NR,
-552,José,Reyes,M2 1 Moraleja 2025,NR,
-552,José,Reyes,M2 4 Moraleja 2025,NR,
-552,José,Reyes,M2 5 Moraleja 2025,NR,
-533,Martín Ignacio,Robles,M1 1 Moraleja 2025,R,27.0
-533,Martín Ignacio,Robles,M1 2 Moraleja 2025,NR,
-533,Martín Ignacio,Robles,M1 4 Moraleja 2025,NR,
-533,Martín Ignacio,Robles,M1 Invierno Ad.26,R,43.0
-533,Martín Ignacio,Robles,M2 1 Moraleja 2025,NR,
-533,Martín Ignacio,Robles,M2 4 Moraleja 2025,NR,
-533,Martín Ignacio,Robles,M2 5 Moraleja 2025,NR,
-530,Josefa Trinidad,Rojas,M1 1 Moraleja 2025,R,41.0
-530,Josefa Trinidad,Rojas,M1 2 Moraleja 2025,R,49.0
-530,Josefa Trinidad,Rojas,M1 4 Moraleja 2025,NR,
-530,Josefa Trinidad,Rojas,M1 Invierno Ad.26,NR,
-530,Josefa Trinidad,Rojas,M2 1 Moraleja 2025,R,20.0
-530,Josefa Trinidad,Rojas,M2 4 Moraleja 2025,R,39.0
-530,Josefa Trinidad,Rojas,M2 5 Moraleja 2025,R,33.0
-504,Emilia Loreto,Sotelo,M1 1 Moraleja 2025,R,34.0
-504,Emilia Loreto,Sotelo,M1 2 Moraleja 2025,R,30.0
-504,Emilia Loreto,Sotelo,M1 4 Moraleja 2025,NR,
-504,Emilia Loreto,Sotelo,M1 Invierno Ad.26,R,53.0
-504,Emilia Loreto,Sotelo,M2 1 Moraleja 2025,NR,
-504,Emilia Loreto,Sotelo,M2 4 Moraleja 2025,NR,
-504,Emilia Loreto,Sotelo,M2 5 Moraleja 2025,NR,
-532,Antonia,Tobar,M1 1 Moraleja 2025,R,36.0
-532,Antonia,Tobar,M1 2 Moraleja 2025,R,38.0
-532,Antonia,Tobar,M1 4 Moraleja 2025,NR,
-532,Antonia,Tobar,M1 Invierno Ad.26,NR,
-532,Antonia,Tobar,M2 1 Moraleja 2025,R,15.0
-532,Antonia,Tobar,M2 4 Moraleja 2025,R,28.0
-532,Antonia,Tobar,M2 5 Moraleja 2025,NR,
-531,Renato Alonso,Urrucelqui,M1 1 Moraleja 2025,R,32.0
-531,Renato Alonso,Urrucelqui,M1 2 Moraleja 2025,NR,
-531,Renato Alonso,Urrucelqui,M1 4 Moraleja 2025,NR,
-531,Renato Alonso,Urrucelqui,M1 Invierno Ad.26,R,55.0
-531,Renato Alonso,Urrucelqui,M2 1 Moraleja 2025,NR,
-531,Renato Alonso,Urrucelqui,M2 4 Moraleja 2025,NR,
-531,Renato Alonso,Urrucelqui,M2 5 Moraleja 2025,NR,
-517,Agustina Beatriz,Valenzuela,M1 1 Moraleja 2025,R,29.0
-517,Agustina Beatriz,Valenzuela,M1 2 Moraleja 2025,NR,
-517,Agustina Beatriz,Valenzuela,M1 4 Moraleja 2025,R,34.0
-517,Agustina Beatriz,Valenzuela,M1 Invierno Ad.26,R,54.0
-517,Agustina Beatriz,Valenzuela,M2 1 Moraleja 2025,NR,
-517,Agustina Beatriz,Valenzuela,M2 4 Moraleja 2025,NR,
-517,Agustina Beatriz,Valenzuela,M2 5 Moraleja 2025,NR,
-507,Trinidad del Pilar,Vargas,M1 1 Moraleja 2025,R,26.0
-507,Trinidad del Pilar,Vargas,M1 2 Moraleja 2025,R,17.0
-507,Trinidad del Pilar,Vargas,M1 4 Moraleja 2025,NR,
-507,Trinidad del Pilar,Vargas,M1 Invierno Ad.26,R,37.0
-507,Trinidad del Pilar,Vargas,M2 1 Moraleja 2025,NR,
-507,Trinidad del Pilar,Vargas,M2 4 Moraleja 2025,NR,
-507,Trinidad del Pilar,Vargas,M2 5 Moraleja 2025,NR,
-518,Matías Alejandro,Arriagada,M1 1 Moraleja 2025,NR,
-518,Matías Alejandro,Arriagada,M1 2 Moraleja 2025,R,16.0
-518,Matías Alejandro,Arriagada,M1 4 Moraleja 2025,NR,
-518,Matías Alejandro,Arriagada,M1 Invierno Ad.26,NR,
-518,Matías Alejandro,Arriagada,M2 1 Moraleja 2025,NR,
-518,Matías Alejandro,Arriagada,M2 4 Moraleja 2025,NR,
-518,Matías Alejandro,Arriagada,M2 5 Moraleja 2025,NR,
-556,Valentina,Medina,M1 1 Moraleja 2025,NR,
-556,Valentina,Medina,M1 2 Moraleja 2025,R,51.0
-556,Valentina,Medina,M1 4 Moraleja 2025,NR,
-556,Valentina,Medina,M1 Invierno Ad.26,NR,
-556,Valentina,Medina,M2 1 Moraleja 2025,R,30.0
-556,Valentina,Medina,M2 4 Moraleja 2025,NR,
-556,Valentina,Medina,M2 5 Moraleja 2025,NR,
-557,Gaspar,Morales Becerra,M1 1 Moraleja 2025,NR,
-557,Gaspar,Morales Becerra,M1 2 Moraleja 2025,R,19.0
-557,Gaspar,Morales Becerra,M1 4 Moraleja 2025,NR,
-557,Gaspar,Morales Becerra,M1 Invierno Ad.26,R,44.0
-557,Gaspar,Morales Becerra,M2 1 Moraleja 2025,NR,
-557,Gaspar,Morales Becerra,M2 4 Moraleja 2025,NR,
-557,Gaspar,Morales Becerra,M2 5 Moraleja 2025,NR,
-515,Francisca,Ortiz,M1 1 Moraleja 2025,NR,
-515,Francisca,Ortiz,M1 2 Moraleja 2025,R,25.0
-515,Francisca,Ortiz,M1 4 Moraleja 2025,NR,
-515,Francisca,Ortiz,M1 Invierno Ad.26,R,53.0
-515,Francisca,Ortiz,M2 1 Moraleja 2025,NR,
-515,Francisca,Ortiz,M2 4 Moraleja 2025,NR,
-515,Francisca,Ortiz,M2 5 Moraleja 2025,NR,
-526,Josefa Valentina,Quiroga,M1 1 Moraleja 2025,NR,
-526,Josefa Valentina,Quiroga,M1 2 Moraleja 2025,R,41.0
-526,Josefa Valentina,Quiroga,M1 4 Moraleja 2025,R,37.0
-526,Josefa Valentina,Quiroga,M1 Invierno Ad.26,NR,
-526,Josefa Valentina,Quiroga,M2 1 Moraleja 2025,NR,
-526,Josefa Valentina,Quiroga,M2 4 Moraleja 2025,NR,
-526,Josefa Valentina,Quiroga,M2 5 Moraleja 2025,NR,
-555,Vicente,Yañez,M1 1 Moraleja 2025,NR,
-555,Vicente,Yañez,M1 2 Moraleja 2025,R,37.0
-555,Vicente,Yañez,M1 4 Moraleja 2025,NR,
-555,Vicente,Yañez,M1 Invierno Ad.26,NR,
-555,Vicente,Yañez,M2 1 Moraleja 2025,NR,
-555,Vicente,Yañez,M2 4 Moraleja 2025,NR,
-555,Vicente,Yañez,M2 5 Moraleja 2025,NR,
-558,Rocío,Cáceres,M1 1 Moraleja 2025,NR,
-558,Rocío,Cáceres,M1 2 Moraleja 2025,NR,
-558,Rocío,Cáceres,M1 4 Moraleja 2025,NR,
-558,Rocío,Cáceres,M1 Invierno Ad.26,R,57.0
-558,Rocío,Cáceres,M2 1 Moraleja 2025,NR,
-558,Rocío,Cáceres,M2 4 Moraleja 2025,NR,
-558,Rocío,Cáceres,M2 5 Moraleja 2025,NR,
-534,Martina,Garrido,M1 1 Moraleja 2025,NR,
-534,Martina,Garrido,M1 2 Moraleja 2025,NR,
-534,Martina,Garrido,M1 4 Moraleja 2025,NR,
-534,Martina,Garrido,M1 Invierno Ad.26,R,48.0
-534,Martina,Garrido,M2 1 Moraleja 2025,NR,
-534,Martina,Garrido,M2 4 Moraleja 2025,NR,
-534,Martina,Garrido,M2 5 Moraleja 2025,NR,
+StudentID,FirstName,LastName,M1 1 Moraleja 2025,M1 2 Moraleja 2025,M1 4 Moraleja 2025,M1 Invierno Ad.26,M2 1 Moraleja 2025,M2 4 Moraleja 2025,M2 5 Moraleja 2025
+502,Gabriela Paz,Acuña,29.0,26.0,NR,57.0,8.0,NR,NR
+503,Cristoba,Arriagada,42.0,NR,NR,51.0,15.0,NR,NR
+524,Joshua Adolfo,Bravo,31.0,27.0,26.0,47.0,NR,NR,NR
+505,Agustina Belén,Carrera,34.0,NR,NR,50.0,NR,NR,NR
+508,Isidora Paz,Catalán,13.0,12.0,NR,34.0,NR,NR,NR
+514,Juan Esteban,Cruz,40.0,NR,NR,57.0,NR,NR,NR
+511,Josefa,Fontecilla,34.0,37.0,NR,49.0,NR,NR,NR
+528,Ignacia Isabela,Galleguillos,18.0,15.0,NR,NR,15.0,15.0,20.0
+506,Alejandra,García,30.0,NR,NR,50.0,NR,NR,NR
+513,Josefina Andrea,Gutierrez,28.0,NR,NR,49.0,NR,NR,NR
+527,Javier Alejando,Huechucura,16.0,NR,NR,NR,NR,NR,NR
+525,Agustina Paz,Larenas,21.0,NR,NR,NR,NR,NR,NR
+509,Simón Augusto,Lazo,34.0,NR,NR,NR,NR,NR,NR
+553,Paula,Lizana,45.0,39.0,NR,NR,20.0,37.0,37.0
+510,Trinidad Renata,Lorca,30.0,17.0,NR,49.0,NR,NR,NR
+501,Florencia Paz,Olguín,34.0,NR,NR,47.0,NR,NR,NR
+516,Ignacio Andrés,Ortiz,43.0,43.0,NR,52.0,NR,NR,NR
+554,Carla,Parraguez,36.0,NR,NR,NR,NR,NR,NR
+550,Santiago,Quilodrán,57.0,56.0,NR,NR,NR,NR,NR
+551,Sofía,Quilodrán,56.0,55.0,NR,NR,NR,NR,NR
+552,José,Reyes,48.0,NR,NR,NR,NR,NR,NR
+533,Martín Ignacio,Robles,27.0,NR,NR,43.0,NR,NR,NR
+530,Josefa Trinidad,Rojas,41.0,49.0,NR,NR,20.0,39.0,33.0
+504,Emilia Loreto,Sotelo,34.0,30.0,NR,53.0,NR,NR,NR
+532,Antonia,Tobar,36.0,38.0,NR,NR,15.0,28.0,NR
+531,Renato Alonso,Urrucelqui,32.0,NR,NR,55.0,NR,NR,NR
+517,Agustina Beatriz,Valenzuela,29.0,NR,34.0,54.0,NR,NR,NR
+507,Trinidad del Pilar,Vargas,26.0,17.0,NR,37.0,NR,NR,NR
+518,Matías Alejandro,Arriagada,NR,16.0,NR,NR,NR,NR,NR
+556,Valentina,Medina,NR,51.0,NR,NR,30.0,NR,NR
+557,Gaspar,Morales Becerra,NR,19.0,NR,44.0,NR,NR,NR
+515,Francisca,Ortiz,NR,25.0,NR,53.0,NR,NR,NR
+526,Josefa Valentina,Quiroga,NR,41.0,37.0,NR,NR,NR,NR
+555,Vicente,Yañez,NR,37.0,NR,NR,NR,NR,NR
+558,Rocío,Cáceres,NR,NR,NR,57.0,NR,NR,NR
+534,Martina,Garrido,NR,NR,NR,48.0,NR,NR,NR

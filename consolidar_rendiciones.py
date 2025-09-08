@@ -2,9 +2,9 @@
 """Genera un resumen de rendiciones y puntajes por estudiante.
 
 Recorre todos los archivos CSV en ``csv_ensayos/`` y produce un archivo
-``resumen_rendiciones.csv`` con las columnas ``StudentID,FirstName,LastName,Exam,Status,Score``.
-Si un estudiante no ha rendido un examen se marca como ``NR`` y el
-puntaje queda vacío.
+``resumen_rendiciones.csv`` donde cada fila corresponde a un estudiante.
+Los nombres de los exámenes aparecen en la primera fila y se rellena con
+el puntaje obtenido o ``NR`` en caso de no rendido.
 """
 
 from __future__ import annotations
@@ -26,7 +26,7 @@ def reunir_datos() -> tuple[dict[str, dict[str, object]], Set[str]]:
         with ruta.open(newline="", encoding="utf-8-sig") as f:
             reader = csv.DictReader(f)
             for fila in reader:
-                examen = fila.get("QuizName") or ruta.stem
+                examen = (fila.get("QuizName") or ruta.stem).replace("\n", " ").replace("\r", " ").strip()
                 examenes.add(examen)
                 sid = fila.get("StudentID", "").strip()
                 nombre = fila.get("FirstName", "").strip()
@@ -49,40 +49,29 @@ def reunir_datos() -> tuple[dict[str, dict[str, object]], Set[str]]:
 def generar_resumen(
     estudiantes: dict[str, dict[str, object]], examenes: Set[str]
 ) -> list[dict[str, object]]:
-    """Crea las filas para el CSV de salida."""
+    """Crea las filas para el CSV de salida.
+
+    Cada fila contiene la información de un estudiante y una columna por
+    examen con el puntaje obtenido o ``NR`` si no lo ha rendido.
+    """
     filas: list[dict[str, object]] = []
     for sid, info in estudiantes.items():
         nombre = info["FirstName"]
         apellido = info["LastName"]
         scores: Dict[str, float] = info["scores"]  # type: ignore[assignment]
+        fila: dict[str, object] = {
+            "StudentID": sid,
+            "FirstName": nombre,
+            "LastName": apellido,
+        }
         for examen in sorted(examenes):
-            if examen in scores:
-                filas.append(
-                    {
-                        "StudentID": sid,
-                        "FirstName": nombre,
-                        "LastName": apellido,
-                        "Exam": examen,
-                        "Status": "R",
-                        "Score": scores[examen],
-                    }
-                )
-            else:
-                filas.append(
-                    {
-                        "StudentID": sid,
-                        "FirstName": nombre,
-                        "LastName": apellido,
-                        "Exam": examen,
-                        "Status": "NR",
-                        "Score": "",
-                    }
-                )
+            fila[examen] = scores.get(examen, "NR")
+        filas.append(fila)
     return filas
 
 
-def escribir_csv(filas: list[dict[str, object]]) -> None:
-    campos = ["StudentID", "FirstName", "LastName", "Exam", "Status", "Score"]
+def escribir_csv(filas: list[dict[str, object]], examenes: Set[str]) -> None:
+    campos = ["StudentID", "FirstName", "LastName", *sorted(examenes)]
     with OUTPUT_FILE.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=campos)
         writer.writeheader()
@@ -92,7 +81,7 @@ def escribir_csv(filas: list[dict[str, object]]) -> None:
 def main() -> None:
     estudiantes, examenes = reunir_datos()
     resumen = generar_resumen(estudiantes, examenes)
-    escribir_csv(resumen)
+    escribir_csv(resumen, examenes)
 
 
 if __name__ == "__main__":
