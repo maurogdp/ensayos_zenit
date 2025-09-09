@@ -14,6 +14,9 @@ from itertools import chain
 from pathlib import Path
 from typing import Dict, Set
 
+import pandas as pd
+from fpdf import FPDF
+
 # Directorios base calculados respecto al archivo del script
 BASE_DIR = Path(__file__).resolve().parent
 INPUT_DIR = BASE_DIR / "csv_ensayos"
@@ -90,6 +93,7 @@ def generar_resumen(
         for examen in sorted(examenes):
             fila[examen] = scores.get(examen, "NR")
         filas.append(fila)
+    filas.sort(key=lambda f: (str(f["LastName"]), str(f["FirstName"])))
     return filas
 
 
@@ -101,10 +105,39 @@ def escribir_csv(filas: list[dict[str, object]], examenes: Set[str]) -> None:
         writer.writerows(filas)
 
 
+def escribir_excel(filas: list[dict[str, object]], examenes: Set[str]) -> None:
+    campos = ["StudentID", "FirstName", "LastName", *sorted(examenes)]
+    df = pd.DataFrame(filas, columns=campos)
+    df.to_excel(OUTPUT_FILE.with_suffix(".xlsx"), index=False)
+
+
+def escribir_pdf(filas: list[dict[str, object]], examenes: Set[str]) -> None:
+    campos = ["StudentID", "FirstName", "LastName", *sorted(examenes)]
+    pdf = FPDF()
+    pdf.set_auto_page_break(auto=True, margin=15)
+    pdf.add_page()
+    pdf.set_font("Arial", size=10)
+    page_width = pdf.w - 2 * pdf.l_margin
+    col_width = page_width / len(campos)
+    row_height = pdf.font_size * 1.5
+
+    for campo in campos:
+        pdf.cell(col_width, row_height, campo, border=1)
+    pdf.ln(row_height)
+
+    for fila in filas:
+        for campo in campos:
+            pdf.cell(col_width, row_height, str(fila.get(campo, "")), border=1)
+        pdf.ln(row_height)
+    pdf.output(str(OUTPUT_FILE.with_suffix(".pdf")))
+
+
 def main() -> None:
     estudiantes, examenes = reunir_datos()
     resumen = generar_resumen(estudiantes, examenes)
     escribir_csv(resumen, examenes)
+    escribir_excel(resumen, examenes)
+    escribir_pdf(resumen, examenes)
 
 
 if __name__ == "__main__":
