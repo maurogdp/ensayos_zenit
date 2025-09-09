@@ -1,37 +1,37 @@
-StudentID,FirstName,LastName,M1 1 Moraleja 2025,M1 2 Moraleja 2025,M1 4 Moraleja 2025,M1 Invierno Ad.26,M2 1 Moraleja 2025,M2 4 Moraleja 2025,M2 5 Moraleja 2025
-502,Gabriela Paz,Acuña,29.0,26.0,NR,57.0,8.0,NR,NR
-503,Cristoba,Arriagada,42.0,NR,NR,51.0,15.0,NR,NR
-524,Joshua Adolfo,Bravo,31.0,27.0,26.0,47.0,NR,NR,NR
-505,Agustina Belén,Carrera,34.0,NR,NR,50.0,NR,NR,NR
-508,Isidora Paz,Catalán,13.0,12.0,NR,34.0,NR,NR,NR
-514,Juan Esteban,Cruz,40.0,NR,NR,57.0,NR,NR,NR
-511,Josefa,Fontecilla,34.0,37.0,NR,49.0,NR,NR,NR
-528,Ignacia Isabela,Galleguillos,18.0,15.0,NR,NR,15.0,15.0,20.0
-506,Alejandra,García,30.0,NR,NR,50.0,NR,NR,NR
-513,Josefina Andrea,Gutierrez,28.0,NR,NR,49.0,NR,NR,NR
-527,Javier Alejando,Huechucura,16.0,NR,NR,NR,NR,NR,NR
-525,Agustina Paz,Larenas,21.0,NR,NR,NR,NR,NR,NR
-509,Simón Augusto,Lazo,34.0,NR,NR,NR,NR,NR,NR
-553,Paula,Lizana,45.0,39.0,NR,NR,20.0,37.0,37.0
-510,Trinidad Renata,Lorca,30.0,17.0,NR,49.0,NR,NR,NR
-501,Florencia Paz,Olguín,34.0,NR,NR,47.0,NR,NR,NR
-516,Ignacio Andrés,Ortiz,43.0,43.0,NR,52.0,NR,NR,NR
-554,Carla,Parraguez,36.0,NR,NR,NR,NR,NR,NR
-550,Santiago,Quilodrán,57.0,56.0,NR,NR,NR,NR,NR
-551,Sofía,Quilodrán,56.0,55.0,NR,NR,NR,NR,NR
-552,José,Reyes,48.0,NR,NR,NR,NR,NR,NR
-533,Martín Ignacio,Robles,27.0,NR,NR,43.0,NR,NR,NR
-530,Josefa Trinidad,Rojas,41.0,49.0,NR,NR,20.0,39.0,33.0
-504,Emilia Loreto,Sotelo,34.0,30.0,NR,53.0,NR,NR,NR
-532,Antonia,Tobar,36.0,38.0,NR,NR,15.0,28.0,NR
-531,Renato Alonso,Urrucelqui,32.0,NR,NR,55.0,NR,NR,NR
-517,Agustina Beatriz,Valenzuela,29.0,NR,34.0,54.0,NR,NR,NR
-507,Trinidad del Pilar,Vargas,26.0,17.0,NR,37.0,NR,NR,NR
-518,Matías Alejandro,Arriagada,NR,16.0,NR,NR,NR,NR,NR
-556,Valentina,Medina,NR,51.0,NR,NR,30.0,NR,NR
-557,Gaspar,Morales Becerra,NR,19.0,NR,44.0,NR,NR,NR
-515,Francisca,Ortiz,NR,25.0,NR,53.0,NR,NR,NR
-526,Josefa Valentina,Quiroga,NR,41.0,37.0,NR,NR,NR,NR
-555,Vicente,Yañez,NR,37.0,NR,NR,NR,NR,NR
-558,Rocío,Cáceres,NR,NR,NR,57.0,NR,NR,NR
-534,Martina,Garrido,NR,NR,NR,48.0,NR,NR,NR
+StudentID,FirstName,LastName,M1 1 Moraleja 2025,M1 10 Moraleja 2025,M1 2 Moraleja 2025,M1 3 Moraleja 2025,M1 4 Moraleja 2025,M1 5 Moraleja 2025,M1 6 Moraleja 2025,M1 7 Moraleja 2025,M1 8 Moraleja 2025,M1 9 Moraleja 2025,M1 Invierno Ad.26,M2 1 Moraleja 2025,M2 10 Moraleja 2025,M2 2 Moraleja 2025,M2 3 Moraleja 2025,M2 4 Moraleja 2025,M2 5 Moraleja 2025,M2 6 Moraleja 2025,M2 7 Moraleja 2025,M2 8 Moraleja 2025,M2 9 Moraleja 2025,M2 Invierno Ad.26
+502,Gabriela Paz,Acuña,29.0,NR,26.0,NR,NR,NR,NR,NR,NR,NR,57.0,8.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+503,Cristoba,Arriagada,42.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,51.0,15.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+524,Joshua Adolfo,Bravo,31.0,NR,27.0,NR,26.0,NR,NR,NR,NR,NR,47.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+505,Agustina Belén,Carrera,34.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,50.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+508,Isidora Paz,Catalán,13.0,NR,12.0,NR,NR,NR,NR,NR,NR,NR,34.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+514,Juan Esteban,Cruz,40.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,57.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+511,Josefa,Fontecilla,34.0,NR,37.0,NR,NR,NR,NR,NR,NR,NR,49.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+528,Ignacia Isabela,Galleguillos,18.0,NR,15.0,NR,NR,NR,NR,NR,NR,NR,NR,15.0,NR,NR,NR,15.0,20.0,NR,NR,NR,NR,NR
+506,Alejandra,García,30.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,50.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+513,Josefina Andrea,Gutierrez,28.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,49.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+527,Javier Alejando,Huechucura,16.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+525,Agustina Paz,Larenas,21.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+509,Simón Augusto,Lazo,34.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+553,Paula,Lizana,45.0,NR,39.0,NR,NR,NR,NR,NR,NR,NR,NR,20.0,NR,NR,NR,37.0,37.0,NR,NR,NR,NR,NR
+510,Trinidad Renata,Lorca,30.0,NR,17.0,NR,NR,NR,NR,NR,NR,NR,49.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+501,Florencia Paz,Olguín,34.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,47.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+516,Ignacio Andrés,Ortiz,43.0,NR,43.0,NR,NR,NR,NR,NR,NR,NR,52.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,26.0
+554,Carla,Parraguez,36.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+550,Santiago,Quilodrán,57.0,NR,56.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+551,Sofía,Quilodrán,56.0,NR,55.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+552,José,Reyes,48.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+533,Martín Ignacio,Robles,27.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,43.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+530,Josefa Trinidad,Rojas,41.0,NR,49.0,NR,NR,NR,NR,NR,NR,NR,NR,20.0,NR,NR,NR,39.0,33.0,NR,NR,NR,NR,NR
+504,Emilia Loreto,Sotelo,34.0,NR,30.0,NR,NR,NR,NR,NR,NR,NR,53.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+532,Antonia,Tobar,36.0,NR,38.0,NR,NR,NR,NR,NR,NR,NR,NR,15.0,NR,NR,NR,28.0,NR,NR,NR,NR,NR,NR
+531,Renato Alonso,Urrucelqui,32.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,55.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+517,Agustina Beatriz,Valenzuela,29.0,NR,NR,NR,34.0,NR,NR,NR,NR,NR,54.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+507,Trinidad del Pilar,Vargas,26.0,NR,17.0,NR,NR,NR,NR,NR,NR,NR,37.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+518,Matías Alejandro,Arriagada,NR,NR,16.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+556,Valentina,Medina,NR,NR,51.0,NR,NR,NR,NR,NR,NR,NR,NR,30.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+557,Gaspar,Morales Becerra,NR,NR,19.0,NR,NR,NR,NR,NR,NR,NR,44.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+515,Francisca,Ortiz,NR,NR,25.0,NR,NR,NR,NR,NR,NR,NR,53.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+526,Josefa Valentina,Quiroga,NR,NR,41.0,NR,37.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+555,Vicente,Yañez,NR,NR,37.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+558,Rocío,Cáceres,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,57.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR
+534,Martina,Garrido,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,48.0,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR,NR

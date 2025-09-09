@@ -38,7 +38,7 @@ def reunir_datos() -> tuple[dict[str, dict[str, object]], Set[str]]:
             primera = next(reader, None)
 
             if primera is None:
-                examen = ruta.stem.replace("\n", " ").replace("\r", " ").strip()
+                examen = ruta.stem.split("-")[1]
                 examenes.add(examen)
                 continue
 
