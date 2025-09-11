@@ -355,6 +355,7 @@ def open_quiz_and_download(driver, quiz_info, download_dir: Path, dry_run=False)
     Returns:
         Path of the downloaded file (or intended path in dry_run)
     """
+    download_dir.mkdir(parents=True, exist_ok=True)
     # Navigate to quiz page
     driver.get(quiz_info["href"])
     # The "Quiz Statistics" box is part of the quiz page itself.  Locate the
@@ -516,8 +517,16 @@ def main():
         sys.exit(1)
     # Determine download directory
     download_dir_str = args.download_dir or os.getenv("DOWNLOAD_DIR") or "./zipgrade_downloads"
-    download_dir = Path(download_dir_str).resolve()
-    download_dir.mkdir(parents=True, exist_ok=True)
+    download_dir = Path(download_dir_str).expanduser()
+    try:
+        download_dir.mkdir(parents=True, exist_ok=True)
+    except OSError as e:
+        print(
+            f"Error: Could not create download directory '{download_dir}': {e}",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+    print(f"Using download directory: {download_dir.resolve()}")
     # Use headless mode unless headful flag is passed
     headless = not args.headful
     with chrome_driver(headless=headless, download_dir=download_dir) as driver:
