@@ -254,6 +254,11 @@ class RateLimitError(Exception):
     pass
 
 
+class PopupError(Exception):
+    """Raised when an unexpected popup window is detected during download."""
+    pass
+
+
 def page_has_rate_limit(driver) -> bool:
     """Check if the current page displays a rate limit error message.
 
@@ -380,9 +385,20 @@ def open_quiz_and_download(driver, quiz_info, download_dir: Path, dry_run=False)
         return target_path
     # Initiate download and monitor download directory
     before_files = set(os.listdir(download_dir))
+    original_handles = set(driver.window_handles)
+    current_handle = driver.current_window_handle
     download_link.click()
     # Short pause to allow for potential redirection or rate limit message
     time.sleep(0.5)
+    # Detect unexpected popup windows
+    current_handles = set(driver.window_handles)
+    new_handles = current_handles - original_handles
+    if new_handles:
+        for handle in new_handles:
+            driver.switch_to.window(handle)
+            driver.close()
+        driver.switch_to.window(current_handle)
+        raise PopupError("Unexpected popup window detected")
     if page_has_rate_limit(driver):
         # Rate limit encountered immediately after click
         raise RateLimitError("Too many attempts")
@@ -526,10 +542,12 @@ def main():
         # Process quizzes with retry logic to handle rate limiting
         to_process = list(quizzes)
         rate_limited = []
+        popup_queue = []
 
         def process_batch(batch):
             processed = 0
-            for idx, quiz in enumerate(batch, 1):
+            while batch:
+                quiz = batch.pop(0)
                 print(f"Processing: {quiz['title']} ({quiz['date_text']})")
                 try:
                     open_quiz_and_download(
@@ -539,16 +557,29 @@ def main():
                         dry_run=args.dry_run,
                     )
                     processed += 1
-                except RateLimitError as rl_err:
+                except PopupError:
+                    print(
+                        f"  Popup detected on '{quiz['title']}'. Will retry after remaining quizzes.",
+                        file=sys.stderr,
+                    )
+                    popup_queue.append(quiz)
+                except RateLimitError:
                     # Record for later retry
-                    print(f"  Rate limit encountered on '{quiz['title']}'. Will retry later.", file=sys.stderr)
+                    print(
+                        f"  Rate limit encountered on '{quiz['title']}'. Will retry later.",
+                        file=sys.stderr,
+                    )
                     rate_limited.append(quiz)
                 except Exception as ex:
                     print(f"  Error processing '{quiz['title']}': {ex}", file=sys.stderr)
             return processed
 
-        # Initial pass
-        processed_count = process_batch(to_process)
+        # Initial pass and popup retries
+        process_batch(to_process)
+        while popup_queue and not args.dry_run:
+            to_process, popup_queue = popup_queue, []
+            process_batch(to_process)
+
         # Retry failed downloads due to rate limiting
         rounds = 0
         max_rounds = 3  # number of retry rounds
