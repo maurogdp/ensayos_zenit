@@ -421,14 +421,9 @@ def open_quiz_and_download(driver, quiz_info, download_dir: Path, dry_run=False)
                 default=None
             )
             if latest:
-                # Move/rename
-                try:
-                    latest.rename(target_path)
-                except Exception:
-                    # Use a unique suffix if a file already exists
-                    suffix = int(time.time())
-                    target_path = download_dir / f"{target_path.stem} ({suffix}){target_path.suffix}"
-                    latest.rename(target_path)
+                if target_path.exists():
+                    target_path.unlink()
+                latest.rename(target_path)
                 print(f"Downloaded: {target_path.name}")
                 return target_path
     raise TimeoutException("Timed out waiting for file to download.")
@@ -516,7 +511,11 @@ def main():
         print("Error: You must set ZIPGRADE_EMAIL and ZIPGRADE_PASSWORD in your environment or .env file.", file=sys.stderr)
         sys.exit(1)
     # Determine download directory
-    download_dir_str = args.download_dir or os.getenv("DOWNLOAD_DIR") or "./zipgrade_downloads"
+    download_dir_str = (
+        args.download_dir
+        or os.getenv("DOWNLOAD_DIR")
+        or str(Path(__file__).resolve().parent.parent / "csv_ensayos")
+    )
     download_dir = Path(download_dir_str).expanduser()
     try:
         download_dir.mkdir(parents=True, exist_ok=True)
