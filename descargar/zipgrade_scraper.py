@@ -254,6 +254,11 @@ class RateLimitError(Exception):
     pass
 
 
+class PopupError(Exception):
+    """Raised when an unexpected popup window is detected during download."""
+    pass
+
+
 def page_has_rate_limit(driver) -> bool:
     """Check if the current page displays a rate limit error message.
 
@@ -380,9 +385,18 @@ def open_quiz_and_download(driver, quiz_info, download_dir: Path, dry_run=False)
         return target_path
     # Initiate download and monitor download directory
     before_files = set(os.listdir(download_dir))
+    original_handles = driver.window_handles
     download_link.click()
     # Short pause to allow for potential redirection or rate limit message
     time.sleep(0.5)
+    # Detect unexpected popup windows
+    current_handles = driver.window_handles
+    new_handles = [h for h in current_handles if h not in original_handles]
+    if new_handles:
+        driver.switch_to.window(new_handles[0])
+        driver.close()
+        driver.switch_to.window(original_handles[0])
+        raise PopupError("Unexpected popup window detected")
     if page_has_rate_limit(driver):
         # Rate limit encountered immediately after click
         raise RateLimitError("Too many attempts")
@@ -529,7 +543,8 @@ def main():
 
         def process_batch(batch):
             processed = 0
-            for idx, quiz in enumerate(batch, 1):
+            while batch:
+                quiz = batch.pop(0)
                 print(f"Processing: {quiz['title']} ({quiz['date_text']})")
                 try:
                     open_quiz_and_download(
@@ -539,6 +554,9 @@ def main():
                         dry_run=args.dry_run,
                     )
                     processed += 1
+                except PopupError:
+                    print(f"  Popup detected on '{quiz['title']}'. Will retry after remaining quizzes.", file=sys.stderr)
+                    batch.append(quiz)
                 except RateLimitError as rl_err:
                     # Record for later retry
                     print(f"  Rate limit encountered on '{quiz['title']}'. Will retry later.", file=sys.stderr)
