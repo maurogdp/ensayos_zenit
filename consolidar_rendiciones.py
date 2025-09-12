@@ -41,7 +41,8 @@ def reunir_datos() -> tuple[dict[str, dict[str, object]], Set[str]]:
             primera = next(reader, None)
 
             if primera is None:
-                examen = ruta.stem.split("-")[1]
+                partes = ruta.stem.split(" - ")
+                examen = partes[1].strip() if len(partes) > 1 else ruta.stem
                 examenes.add(examen)
                 continue
 
