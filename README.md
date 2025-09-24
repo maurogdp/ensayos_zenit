@@ -31,7 +31,12 @@ Los archivos de salida se generan en la raíz del repositorio.
 Recorre todos los archivos dentro de `csv_ensayos/` y genera
 `resumen_rendiciones.csv`, donde cada fila corresponde a un estudiante y
 los nombres de los exámenes aparecen como columnas. En cada celda se
-indica el puntaje obtenido o `NR` si aún no lo ha realizado.
+indica el puntaje obtenido o `NR` si aún no lo ha realizado. Además,
+produce los archivos `resumen_rendiciones.xlsx` y `resumen_rendiciones.pdf`.
+
+Adicionalmente, crea un archivo CSV por estudiante en la carpeta
+`csv_estudiantes/` con todas sus rendiciones y el detalle completo tal
+como aparece en los archivos originales.
 
 ### Uso
 
