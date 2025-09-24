@@ -10,9 +10,11 @@ el puntaje obtenido o ``NR`` en caso de no rendido.
 from __future__ import annotations
 
 import csv
+import re
+import unicodedata
 from itertools import chain
 from pathlib import Path
-from typing import Dict, Set
+from typing import Dict, List, Set
 
 import pandas as pd
 from fpdf import FPDF
@@ -21,10 +23,15 @@ from fpdf import FPDF
 BASE_DIR = Path(__file__).resolve().parent
 INPUT_DIR = BASE_DIR / "csv_ensayos"
 OUTPUT_FILE = BASE_DIR / "resumen_rendiciones.csv"
+STUDENT_OUTPUT_DIR = BASE_DIR / "csv_estudiantes"
 
 
 def reunir_datos() -> tuple[dict[str, dict[str, object]], Set[str]]:
-    """Lee todos los CSV y consolida la información."""
+    """Lee todos los CSV y consolida la información.
+
+    Además de los puntajes por examen, conserva el detalle completo de cada
+    rendición para generar archivos individuales por estudiante.
+    """
     estudiantes: dict[str, dict[str, object]] = {}
     examenes: Set[str] = set()
 
@@ -38,6 +45,7 @@ def reunir_datos() -> tuple[dict[str, dict[str, object]], Set[str]]:
         print(f"Procesando {ruta}")
         with ruta.open(newline="", encoding="utf-8-sig") as f:
             reader = csv.DictReader(f)
+            columnas = list(reader.fieldnames or [])
             primera = next(reader, None)
 
             if primera is None:
@@ -54,7 +62,10 @@ def reunir_datos() -> tuple[dict[str, dict[str, object]], Set[str]]:
             )
             examenes.add(examen)
 
-            for fila in chain([primera], reader):
+            filas = chain([primera], reader)
+            for fila in filas:
+                if not fila:
+                    continue
                 sid = fila.get("StudentID", "").strip()
                 nombre = fila.get("FirstName", "").strip()
                 apellido = fila.get("LastName", "").strip()
@@ -64,12 +75,28 @@ def reunir_datos() -> tuple[dict[str, dict[str, object]], Set[str]]:
                     puntaje = 0.0
 
                 info = estudiantes.setdefault(
-                    sid, {"FirstName": nombre, "LastName": apellido, "scores": {}}
+                    sid,
+                    {
+                        "FirstName": nombre,
+                        "LastName": apellido,
+                        "scores": {},
+                        "details": [],
+                    },
                 )
                 info["FirstName"] = info.get("FirstName") or nombre
                 info["LastName"] = info.get("LastName") or apellido
                 scores: Dict[str, float] = info["scores"]  # type: ignore[assignment]
                 scores[examen] = puntaje
+
+                detalles: List[dict[str, object]] = info.setdefault(
+                    "details", []
+                )  # type: ignore[assignment]
+                detalles.append(
+                    {
+                        "columns": tuple(columnas),
+                        "row": dict(fila),
+                    }
+                )
     return estudiantes, examenes
 
 
@@ -133,12 +160,85 @@ def escribir_pdf(filas: list[dict[str, object]], examenes: Set[str]) -> None:
     pdf.output(str(OUTPUT_FILE.with_suffix(".pdf")))
 
 
+def _normalizar_para_archivo(texto: str, predeterminado: str) -> str:
+    """Convierte un texto en un fragmento seguro para un nombre de archivo."""
+
+    valor = (texto or "").strip()
+    if not valor:
+        valor = predeterminado
+    valor = unicodedata.normalize("NFKD", valor)
+    valor = valor.encode("ascii", "ignore").decode("ascii")
+    valor = re.sub(r"[^A-Za-z0-9._-]+", "_", valor)
+    valor = valor.strip("._")
+    return valor or predeterminado
+
+
+def exportar_detalles_estudiantes(estudiantes: dict[str, dict[str, object]]) -> None:
+    """Genera un CSV con el detalle completo de rendiciones por estudiante."""
+
+    STUDENT_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    for archivo in STUDENT_OUTPUT_DIR.glob("*.csv"):
+        try:
+            archivo.unlink()
+        except OSError:
+            continue
+
+    for sid, info in estudiantes.items():
+        detalles = info.get("details")
+        if not detalles:
+            continue
+
+        filas: List[dict[str, str]] = []
+        campos: List[str] = []
+        campos_vistos: Set[str] = set()
+
+        for detalle in detalles:  # type: ignore[assignment]
+            fila = detalle.get("row") if isinstance(detalle, dict) else None
+            columnas = detalle.get("columns") if isinstance(detalle, dict) else ()
+
+            if isinstance(columnas, (list, tuple)):
+                for columna in columnas:
+                    if columna and columna not in campos_vistos:
+                        campos_vistos.add(columna)
+                        campos.append(columna)
+
+            if isinstance(fila, dict):
+                filas.append({k: str(v) if v is not None else "" for k, v in fila.items()})
+                for columna in fila:
+                    if columna and columna not in campos_vistos:
+                        campos_vistos.add(columna)
+                        campos.append(columna)
+
+        if not filas or not campos:
+            continue
+
+        nombre = _normalizar_para_archivo(str(info.get("FirstName", "")), "sin_nombre")
+        apellido = _normalizar_para_archivo(str(info.get("LastName", "")), "sin_apellido")
+        identificador = _normalizar_para_archivo(sid, "sin_id")
+
+        partes = [identificador]
+        if apellido:
+            partes.append(apellido)
+        if nombre:
+            partes.append(nombre)
+        nombre_archivo = "_".join(partes) + ".csv"
+        ruta_salida = STUDENT_OUTPUT_DIR / nombre_archivo
+
+        with ruta_salida.open("w", newline="", encoding="utf-8") as archivo_salida:
+            writer = csv.DictWriter(archivo_salida, fieldnames=campos)
+            writer.writeheader()
+            for fila in filas:
+                writer.writerow({campo: fila.get(campo, "") for campo in campos})
+
+
 def main() -> None:
     estudiantes, examenes = reunir_datos()
     resumen = generar_resumen(estudiantes, examenes)
     escribir_csv(resumen, examenes)
     escribir_excel(resumen, examenes)
     escribir_pdf(resumen, examenes)
+    exportar_detalles_estudiantes(estudiantes)
 
 
 if __name__ == "__main__":
