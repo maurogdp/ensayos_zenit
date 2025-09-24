@@ -24,6 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent
 INPUT_DIR = BASE_DIR / "csv_ensayos"
 OUTPUT_FILE = BASE_DIR / "resumen_rendiciones.csv"
 STUDENT_OUTPUT_DIR = BASE_DIR / "csv_estudiantes"
+STUDENT_COMBINED_FILE = STUDENT_OUTPUT_DIR / "todos_los_estudiantes.csv"
 
 
 def reunir_datos() -> tuple[dict[str, dict[str, object]], Set[str]]:
@@ -184,6 +185,18 @@ def exportar_detalles_estudiantes(estudiantes: dict[str, dict[str, object]]) -> 
         except OSError:
             continue
 
+    combined_rows: List[dict[str, str]] = []
+    combined_fields: List[str] = []
+    combined_seen: Set[str] = set()
+
+    def registrar_campos(campos: List[str]) -> None:
+        for campo in campos:
+            if campo and campo not in combined_seen:
+                combined_seen.add(campo)
+                combined_fields.append(campo)
+
+    registrar_campos(["StudentID", "FirstName", "LastName"])
+
     for sid, info in estudiantes.items():
         detalles = info.get("details")
         if not detalles:
@@ -213,6 +226,13 @@ def exportar_detalles_estudiantes(estudiantes: dict[str, dict[str, object]]) -> 
         if not filas or not campos:
             continue
 
+        campos_ordenados: List[str] = []
+        for columna in ["StudentID", "FirstName", "LastName", *campos]:
+            if columna and columna not in campos_ordenados:
+                campos_ordenados.append(columna)
+
+        registrar_campos(campos_ordenados)
+
         nombre = _normalizar_para_archivo(str(info.get("FirstName", "")), "sin_nombre")
         apellido = _normalizar_para_archivo(str(info.get("LastName", "")), "sin_apellido")
         identificador = _normalizar_para_archivo(sid, "sin_id")
@@ -226,10 +246,27 @@ def exportar_detalles_estudiantes(estudiantes: dict[str, dict[str, object]]) -> 
         ruta_salida = STUDENT_OUTPUT_DIR / nombre_archivo
 
         with ruta_salida.open("w", newline="", encoding="utf-8") as archivo_salida:
-            writer = csv.DictWriter(archivo_salida, fieldnames=campos)
+            writer = csv.DictWriter(archivo_salida, fieldnames=campos_ordenados)
             writer.writeheader()
             for fila in filas:
-                writer.writerow({campo: fila.get(campo, "") for campo in campos})
+                fila_normalizada = {campo: fila.get(campo, "") for campo in campos_ordenados}
+                fila_normalizada.setdefault("StudentID", sid)
+                fila_normalizada.setdefault("FirstName", str(info.get("FirstName", "")))
+                fila_normalizada.setdefault("LastName", str(info.get("LastName", "")))
+                writer.writerow(fila_normalizada)
+                combined_rows.append(dict(fila_normalizada))
+
+    if combined_rows and combined_fields:
+        with STUDENT_COMBINED_FILE.open("w", newline="", encoding="utf-8") as archivo_salida:
+            writer = csv.DictWriter(archivo_salida, fieldnames=combined_fields)
+            writer.writeheader()
+            for fila in combined_rows:
+                writer.writerow({campo: fila.get(campo, "") for campo in combined_fields})
+    elif STUDENT_COMBINED_FILE.exists():
+        try:
+            STUDENT_COMBINED_FILE.unlink()
+        except OSError:
+            pass
 
 
 def main() -> None:
